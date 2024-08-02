@@ -2,6 +2,10 @@ version: '3.9'
 
 services:
   web:
+<<<<<<< HEAD
     image: 'trainwithshubham/node-todo-test:latest'
+=======
+    build: .
+>>>>>>> faf0c2a (modified docker-compose.yml file)
     ports:
       - "8000:8000"
