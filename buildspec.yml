@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  pre_build:
+    commands:
+      - echo Running pre-build phase...
+      - npm run lint # Optional, run linting if you have it
+      - npm test     # Run tests if any are defined
+
+  build:
+    commands:
+      - echo Running build phase...
+      - npm run build # Adjust if you have a specific build command
+
+  post_build:
+    commands:
+      - echo Build complete.
+
+artifacts:
+  files:
+    - '**/*'
