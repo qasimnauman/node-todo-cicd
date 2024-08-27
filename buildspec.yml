@@ -3,24 +3,33 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing dependencies...
+      - echo "Installing dependencies..."
       - npm install
 
   pre_build:
     commands:
-      - echo Running pre-build phase...
-      - npm run lint # Optional, run linting if you have it
-      - npm test     # Run tests if any are defined
+      - echo "Running pre-build phase..."
+      - npm run lint  # Ensures code quality
+      - npm run test  # Runs unit tests
 
   build:
     commands:
-      - echo Running build phase...
-      - npm run build # Adjust if you have a specific build command
+      - echo "Building the application..."
+      - npm run build  # Build step if the project requires it
 
   post_build:
     commands:
-      - echo Build complete.
+      - echo "Post-build phase..."
+      - echo "Packaging application for deployment"
+      - zip -r node-todo-app.zip .  # Create a deployment zip file
+      - echo "Build completed!"
 
 artifacts:
   files:
-    - '**/*'
+    - node-todo-app.zip  # Artifacts that CodeDeploy will use to deploy the app
+    - appspec.yml
+    - scripts/**  # Ensure your scripts like start_server.sh, install_dependencies.sh, etc. are included
+
+cache:
+  paths:
+    - node_modules/**/*
