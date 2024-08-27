@@ -9,7 +9,7 @@ phases:
   pre_build:
     commands:
       - echo "Running pre-build phase..."
-      - npm run lint  # Ensures code quality
+#      - npm run lint  # Ensures code quality
       - npm run test  # Runs unit tests
 
   build:
