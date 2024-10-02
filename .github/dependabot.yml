@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"  # You can change this to the appropriate package manager, e.g., "pip", "maven", etc.
+    directory: "/"             # Location of your package file, e.g., package.json or requirements.txt
+    schedule:
+      interval: "daily"        # Check for updates daily
